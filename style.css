@@ -1,0 +1,233 @@
+/* Basic Reset & Body Styles */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    background-image: linear-gradient(to right top, #121212, #1a1a1a, #222222, #2a2a2a, #333333);
+    color: #e0e0e0; /* Light text */
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    overflow: hidden;
+    padding: 0 20px;
+}
+
+/* Header & Navigation */
+header {
+    background: #1e1e1e; /* Slightly lighter dark background */
+    color: #e0e0e0;
+    padding: 1rem 0;
+    border-bottom: 1px solid #333; /* Darker border */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: #fff;
+}
+
+header ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+header ul li {
+    margin-left: 20px;
+}
+
+header ul li a {
+    text-decoration: none;
+    color: #ccc; /* Lighter link color */
+    font-weight: 500;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+header ul li a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #4dabf7;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+header ul li a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+header ul li a:hover {
+    color: #4dabf7; /* Brighter blue for hover */
+}
+
+.nav-icons {
+    display: flex;
+    align-items: center;
+    transition: opacity 0.5s ease;
+}
+
+.icon-link {
+    color: #ccc;
+    margin-left: 15px;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+.icon-link:hover {
+    color: #4dabf7;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 4rem 0;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    font-weight: 700; /* Bold for main title */
+}
+
+.hero p {
+    font-weight: 300; /* Lighter for description */
+    font-size: 1.2rem;
+}
+
+/* Product Grid */
+.product-grid h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: 700; /* Bold for section title */
+    font-size: 2rem;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.product-card {
+    background: #1e1e1e;
+    border: 1px solid #333;
+    border-radius: 8px;
+    text-align: center;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+.product-card img {
+    width: 100%;
+    height: 350px; /* Set a fixed height for all images */
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.product-card h3 {
+    font-weight: 700; /* Bold for product name */
+    margin: 0.5rem 0;
+}
+
+.product-card .price {
+    font-weight: bold;
+    color: #4dabf7; /* Brighter blue for price */
+    font-size: 1.2rem;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 2rem;
+    background: #1e1e1e;
+    color: #ccc;
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.hamburger div {
+    width: 25px;
+    height: 3px;
+    background-color: #fff; /* Hamburger lines to white */
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .nav-links {
+        position: absolute;
+        right: 0px;
+        height: 92vh;
+        top: 8vh;
+        background-color: #1e1e1e;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 50%;
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in;
+        border-left: 1px solid #333;
+    }
+
+    .nav-links li {
+        opacity: 0;
+        margin-left: 0;
+        padding: 1rem 0;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .nav-icons {
+        display: none;
+    }
+
+    .nav-active {
+        transform: translateX(0%);
+    }
+
+    /* Animation for links appearing */
+    @keyframes navLinkFade {
+        from {
+            opacity: 0;
+            transform: translateX(50px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0px);
+        }
+    }
+}
